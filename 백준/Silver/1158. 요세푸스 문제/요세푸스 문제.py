@@ -13,3 +13,16 @@ while arr:
     result.append(arr.pop(idx))
 
 print("<" + ", ".join(map(str, result)) + ">")
+
+
+##Deque로 푸는 방법
+from collections import deque
+N, K  = map(int, input().split())
+dq = deque(range(1, N + 1))
+result = []
+
+while dq:
+    dq.rotate(-(K-1))    #K가 1번으로 가게
+    result.append(dq.popleft())
+
+print("<"+", ".join(map(str, result)) + ">")
